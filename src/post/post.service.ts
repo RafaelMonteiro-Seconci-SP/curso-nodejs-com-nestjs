@@ -3,12 +3,14 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+//Comunicação com a tabela do banco
 import { Post } from 'src/entity/post.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
 export class PostService {
   constructor(
+    // Chamada para a tabela no constutor
     @InjectRepository(Post)
     private postRepository: Repository<Post>,
   ) {}
