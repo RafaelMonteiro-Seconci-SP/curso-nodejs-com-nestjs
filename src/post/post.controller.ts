@@ -9,38 +9,37 @@ import {
   Put,
 } from '@nestjs/common';
 import { CreatePostDto, EditPostDto } from '../dtos';
+import { PostService } from './post.service';
 
 @Controller('post')
 export class PostController {
+  constructor(private readonly postService: PostService) {}
   @Get()
-  getMany() {
-    return 'OK';
+  async getMany() {
+    const data = await this.postService.getMany();
+    return {
+      message: 'Petição correta',
+      data,
+    };
   }
   @Get(':id')
   getOne(@Param('id', ParseIntPipe) id: number) {
-    console.log(typeof id);
-    return {
-      messagen: 'getOne',
-    };
+    return this.postService.getOne(id);
   }
   @Post()
   postOne(@Body() dto: CreatePostDto) {
+    const post = this.postService.postOne(dto);
     return {
-      messagen: dto,
+      message: 'Petição correta',
+      post,
     };
   }
   @Put(':id')
-  putOne(@Param('id') id: string, @Body() dto: EditPostDto) {
-    console.log(id);
-    return {
-      messagen: dto,
-    };
+  putOne(@Param('id') id: number, @Body() dto: EditPostDto) {
+    return this.postService.putOne(id, dto);
   }
   @Delete(':id')
-  deletOne(@Param('id') id: string) {
-    console.log(id);
-    return {
-      messagen: 'deletOne sucess',
-    };
+  deletOne(@Param('id') id: number) {
+    return this.postService.deletOne(id);
   }
 }
