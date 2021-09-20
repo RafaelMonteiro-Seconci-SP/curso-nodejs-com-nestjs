@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { IsArray, IsBoolean, IsEnum, IsString } from 'class-validator';
-import { EnumToString } from '../helpers/enumToString';
+import { EnumToString } from '../../helpers/enumToString';
 import { PostCtegory } from '../enums';
 
 export class CreatePostDto {

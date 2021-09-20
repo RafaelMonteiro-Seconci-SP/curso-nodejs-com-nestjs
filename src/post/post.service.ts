@@ -4,7 +4,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 //Comunicação com a tabela do banco
-import { Post } from 'src/entity/post.entity';
+import { Post } from 'src/post/entity/post.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()

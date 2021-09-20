@@ -9,7 +9,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { CreatePostDto, EditPostDto } from '../dtos';
+import { CreatePostDto, EditPostDto } from './dtos';
 import { PostService } from './post.service';
 
 @ApiTags('Post')
