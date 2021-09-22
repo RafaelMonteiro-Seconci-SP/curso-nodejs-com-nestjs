@@ -1,12 +1,16 @@
 /* eslint-disable prettier/prettier */
 import { Logger, ValidationPipe } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { initSwagger } from 'app.swagger';
 import { AppModule } from 'src/app.module';
+import { URL_PORT } from './config/constants';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const logger = new Logger();
+  const logger = new Logger('Bootstrap');
+  const config = app.get(ConfigService);
+  const port = parseInt(config.get<string>(URL_PORT), 10) || 3000
 
   initSwagger(app);
   
@@ -16,7 +20,7 @@ async function bootstrap() {
     })
   )
 
-  await app.listen(3000);
+  await app.listen(port);
   logger.log(`Server is running in ${ await app.getUrl() }`)
 }
 bootstrap();

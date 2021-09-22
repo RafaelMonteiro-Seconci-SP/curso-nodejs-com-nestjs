@@ -7,7 +7,7 @@ export const initSwagger = (app: INestApplication) => {
     .setTitle('ContratosAPI')
     .addBearerAuth()
     .setDescription(
-      'Por aqui será possivel testar todas as APIs do portal contrato.',
+      'Por aqui será possivel testar todas as APIs do portal contratos.',
     )
     .build();
   const document = SwaggerModule.createDocument(app, swaggerConfig);
