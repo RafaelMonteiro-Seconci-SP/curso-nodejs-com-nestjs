@@ -45,4 +45,8 @@ export class UserService {
         const user = await this.getOne(id)
         return await this.userRepository.remove(user)
     }
+
+    async getUser(login) {
+        return await this.userRepository.createQueryBuilder('user').where({login}).addSelect('user.senha').getOne()
+    }
 }

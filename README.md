@@ -71,3 +71,15 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Gearndo component nest
+
+module
+service
+controller
+
+```bash
+  $  nest g mo auth
+  $  nest g s auth
+  $  nest g co auth
+```

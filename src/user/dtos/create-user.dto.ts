@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 
 import { IsEmail, IsOptional, IsString, MaxLength, MinLength, IsEnum, } from "class-validator";
-import { EnumToString } from "src/helpers/enumToString";
+import { EnumToString } from "src/common/helpers/enumToString";
 import { UserCategory } from "../enums";
 
 

@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+export const TOKEN = 'JWT_SECRET';
 export const HOST = 'DATABASE_HOST';
 export const PORT = 'DATABASE_PORT';
 export const USERNAME = 'DATABASE_USERNAME';

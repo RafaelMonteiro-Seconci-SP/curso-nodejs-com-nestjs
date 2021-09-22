@@ -7,6 +7,7 @@ import { AppService } from './app.service';
 import { HOST, NAME, PASSWORD, PORT, USERNAME } from './config/constants';
 import { PostModule } from './post/post.module';
 import { UserModule } from './user/user.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { UserModule } from './user/user.module';
     }),
     PostModule,
     UserModule,
+    AuthModule,
 ],
   controllers: [AppController],
   providers: [AppService],
