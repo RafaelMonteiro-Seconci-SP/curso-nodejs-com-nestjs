@@ -2,7 +2,7 @@
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
-import { initSwagger } from 'app.swagger';
+import { initSwagger } from 'src/app.swagger';
 import { AppModule } from 'src/app.module';
 import { URL_PORT } from './config/constants';
 
