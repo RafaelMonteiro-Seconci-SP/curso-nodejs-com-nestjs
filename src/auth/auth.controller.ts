@@ -1,9 +1,10 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, UseGuards } from '@nestjs/common';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { User, Auth } from 'src/common/decorators';
 import { AuthService } from './auth.service';
-import { LocalAuthGuard, JwtAuthGuard } from './guards';
+import { LoginDto } from './dtos/login.dto';
+import { LocalAuthGuard } from './guards';
 
 @ApiTags('Auth')
 @Controller('auth')
@@ -13,7 +14,7 @@ export class AuthController {
 
     @UseGuards(LocalAuthGuard)
     @Post('login')
-    async login(@User() user,) {
+    async login(@Body() loginDto: LoginDto,@User() user,) {
         const data = await this.authService.login(user)
         return {
             message: 'Logado com sucesso',

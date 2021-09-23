@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { Auth } from 'src/common/decorators';
 import { CreateUserDto, EditUserDto } from './dtos';
 import { UserService } from './user.service';
 
 @ApiTags('User')
+@Auth()
 @Controller('user')
 export class UserController {
     

@@ -10,10 +10,12 @@ import {
   Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
+import { Auth } from 'src/common/decorators';
 import { CreatePostDto, EditPostDto } from './dtos';
 import { PostService } from './post.service';
 
 @ApiTags('Post')
+@Auth()
 @Controller('post')
 export class PostController {
   constructor(private readonly postService: PostService) {}

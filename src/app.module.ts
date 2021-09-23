@@ -8,6 +8,8 @@ import { HOST, NAME, PASSWORD, PORT, USERNAME } from './config/constants';
 import { PostModule } from './post/post.module';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { AccessControlModule } from 'nest-access-control';
+// import { roles } from './app.roles';
 
 @Module({
   imports: [
@@ -29,9 +31,10 @@ import { AuthModule } from './auth/auth.module';
       isGlobal: true,
       envFilePath: '.env'
     }),
+    // AccessControlModule.forRoles(roles),
+    AuthModule,
     PostModule,
     UserModule,
-    AuthModule,
 ],
   controllers: [AppController],
   providers: [AppService],
