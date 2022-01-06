@@ -7,7 +7,8 @@ import { AppModule } from 'src/app.module';
 import { URL_PORT } from './config/constants';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
+  app.enableCors();  
   const logger = new Logger('Bootstrap');
   const config = app.get(ConfigService);
   const port = parseInt(config.get<string>(URL_PORT), 10) || 3000
@@ -19,7 +20,6 @@ async function bootstrap() {
       whitelist: true
     })
   )
-
   await app.listen(port);
   logger.log(`Server is running in ${ await app.getUrl() }`)
 }
