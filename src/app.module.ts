@@ -8,7 +8,7 @@ import { HOST, NAME, PASSWORD, PORT, USERNAME } from './config/constants';
 import { PostModule } from './components/post/post.module';
 import { UserModule } from './components/user/user.module';
 import { AuthModule } from './auth/auth.module';
-import { AccessControlModule } from 'nest-access-control';
+// import { AccessControlModule } from 'nest-access-control';
 // import { roles } from './app.roles';
 
 @Module({
